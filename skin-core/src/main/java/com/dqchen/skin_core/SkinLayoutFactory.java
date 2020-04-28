@@ -68,12 +68,12 @@ public class SkinLayoutFactory implements LayoutInflater.Factory2, Observer {
             return null;
         }
         for (int i = 0; i < mClassPreFixList.length; i++) {
-            view = createView(mClassPreFixList+name,context,attrs);
+            view = createView(mClassPreFixList[i]+name,context,attrs);
             if (view !=null){
-                return view;
+                break;
             }
         }
-        return null;
+        return view;
     }
 
     /**

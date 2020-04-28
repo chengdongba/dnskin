@@ -41,6 +41,7 @@ public class SkinActivityLifeCircle implements Application.ActivityLifecycleCall
 
         try {
             Field mFactorySet = LayoutInflater.class.getDeclaredField("mFactorySet");
+            mFactorySet.setAccessible(true);
             mFactorySet.setBoolean(layoutInflater,false);
         } catch (Exception e) {
             e.printStackTrace();

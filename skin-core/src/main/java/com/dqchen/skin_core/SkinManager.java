@@ -41,7 +41,7 @@ public class SkinManager extends Observable {
      *
      * @param skinPath 皮肤包路径
      */
-    private void loadSkin(String skinPath) {
+    public void loadSkin(String skinPath) {
         if (TextUtils.isEmpty(skinPath)) {
             //还原默认皮肤包
             SkinPreference.getInstance().setSkin("");
@@ -65,8 +65,11 @@ public class SkinManager extends Observable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
+        //通知采集的View 更新皮肤
+        //被观察者改变 通知所有观察者
+        setChanged();
+        notifyObservers(null);
     }
 
     public static void init(Application application) {

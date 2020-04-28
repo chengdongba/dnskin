@@ -1,2 +1,2 @@
-include ':app', ':skin-core'
+include ':app', ':skin-core', ':app-skin'
 rootProject.name='dnskin'

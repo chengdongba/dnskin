@@ -105,6 +105,9 @@ public class SkinAttribute {
         }
 
         public void applySkin(Typeface typeface) {
+            if (view == null){
+                return;
+            }
             applySkinTypeface(typeface);
             applySkinSupport();
             for (SkinPair skinPair : skinPairs) {
@@ -118,7 +121,9 @@ public class SkinAttribute {
                             view.setBackgroundColor((Integer) background);
                         }else {
 //                            view.setBackground((Drawable) background);
-                            ViewCompat.setBackground(view, (Drawable) background);
+                            if (null!=view){
+                                ViewCompat.setBackground(view, (Drawable) background);
+                            }
                         }
                         break;
                     case "src":
